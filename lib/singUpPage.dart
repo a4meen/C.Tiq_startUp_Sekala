@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sekala/completeProfile.dart';
 import 'package:sekala/loginPage.dart';
+import 'package:sekala/signUpSekalaPage.dart';
 
 class signupPage extends StatelessWidget {
   const signupPage({super.key});
@@ -69,6 +71,7 @@ class signupPage extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.9,
                 height: MediaQuery.of(context).size.width * 0.12,
                 child: TextField(
+                  obscureText: true,
                   keyboardType: TextInputType.text,
                   textAlign: TextAlign.right,
                   decoration: InputDecoration(
@@ -87,7 +90,13 @@ class signupPage extends StatelessWidget {
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               TextButton(
-                  onPressed: (() {}),
+                  onPressed: (() {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: ((context) =>
+                                const completeProfilePage())));
+                  }),
                   child: Container(
                     decoration: BoxDecoration(
                         color: const Color(0xffF8872D),
@@ -96,7 +105,7 @@ class signupPage extends StatelessWidget {
                     width: MediaQuery.of(context).size.width * 0.45,
                     height: MediaQuery.of(context).size.height * 0.05,
                     child: const Text(
-                      "سجل الدخول",
+                      "أنشئ الحساب",
                       style: TextStyle(
                           fontFamily: "NotoKufiArabic",
                           fontSize: 14,
@@ -137,14 +146,20 @@ class signupPage extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.001),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.005),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) =>
+                                  const signupPageSekalaPage())));
+                    },
                     child: const Text(
-                      "قم بالتسجيل",
+                      "قم بانشاء حساب سكلة",
                       style: TextStyle(
                           fontFamily: "NotoKufiArabic",
                           fontSize: 14,
