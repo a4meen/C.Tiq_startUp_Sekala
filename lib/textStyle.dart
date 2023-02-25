@@ -1,15 +1,22 @@
 import 'package:flutter/material.dart';
 
-TextStyle themeTextStyle({
-  String fontFamily = "NotoKufiArabic",
-  double fontSize = 14,
-  Color color = const Color(0xff000000),
-  FontWeight fontWeight = FontWeight.w400,
-}) {
-  return TextStyle(
-    color: color,
+// class CustomTextLogo {
+//   static const TextStyle logo = TextStyle(
+//       fontSize: 10,
+//       color: Colors.red,
+//       fontWeight: FontWeight.bold,
+//       fontFamily: "Lato");
+// }
+
+class themeTextStyle {
+  double? fontSize;
+
+  themeTextStyle({required this.fontSize});
+
+  TextStyle themeText = TextStyle(
+    fontFamily: "NotoKufiArabic",
     fontSize: fontSize,
-    fontWeight: fontWeight,
-    fontFamily: fontFamily,
+    color: const Color.fromARGB(255, 4, 16, 241),
+    fontWeight: FontWeight.w400,
   );
 }
