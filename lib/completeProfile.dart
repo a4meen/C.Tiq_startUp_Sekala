@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sekala/homePage.dart';
 
 class completeProfilePage extends StatelessWidget {
   const completeProfilePage({super.key});
@@ -142,7 +143,12 @@ class completeProfilePage extends StatelessWidget {
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               TextButton(
-                  onPressed: (() {}),
+                  onPressed: (() {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: ((context) => const homePage())));
+                  }),
                   child: Container(
                     decoration: BoxDecoration(
                         color: const Color(0xffF8872D),
