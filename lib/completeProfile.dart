@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sekala/homePage.dart';
+import 'package:sekala/textStyle.dart';
 
 class completeProfilePage extends StatelessWidget {
   const completeProfilePage({super.key});
@@ -32,10 +33,7 @@ class completeProfilePage extends StatelessWidget {
                                     const Color(0xff000000).withOpacity(0.5)),
                             borderRadius: BorderRadius.circular(10)),
                         labelText: "الاسم الكامل",
-                        hintStyle: const TextStyle(
-                            fontFamily: "NotoKufiArabic",
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400)),
+                        hintStyle: themeTextStyle(fontSize: 12).themeText),
                   ),
                 ),
               ),
@@ -57,10 +55,7 @@ class completeProfilePage extends StatelessWidget {
                                     const Color(0xff000000).withOpacity(0.5)),
                             borderRadius: BorderRadius.circular(10)),
                         labelText: "الهاتف",
-                        hintStyle: const TextStyle(
-                            fontFamily: "NotoKufiArabic",
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400)),
+                        hintStyle: themeTextStyle(fontSize: 12).themeText),
                   ),
                 ),
               ),
@@ -83,10 +78,7 @@ class completeProfilePage extends StatelessWidget {
                                     const Color(0xff000000).withOpacity(0.5)),
                             borderRadius: BorderRadius.circular(10)),
                         labelText: "كلمة السر",
-                        hintStyle: const TextStyle(
-                            fontFamily: "NotoKufiArabic",
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400)),
+                        hintStyle: themeTextStyle(fontSize: 12).themeText),
                   ),
                 ),
               ),
@@ -108,10 +100,7 @@ class completeProfilePage extends StatelessWidget {
                                     const Color(0xff000000).withOpacity(0.5)),
                             borderRadius: BorderRadius.circular(10)),
                         hintText: "الجنس",
-                        hintStyle: const TextStyle(
-                            fontFamily: "NotoKufiArabic",
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400)),
+                        hintStyle: themeTextStyle(fontSize: 12).themeText),
                   ),
                 ),
               ),
@@ -134,10 +123,7 @@ class completeProfilePage extends StatelessWidget {
                                     const Color(0xff000000).withOpacity(0.5)),
                             borderRadius: BorderRadius.circular(10)),
                         labelText: "العنوان",
-                        hintStyle: const TextStyle(
-                            fontFamily: "NotoKufiArabic",
-                            fontSize: 12,
-                            fontWeight: FontWeight.w400)),
+                        hintStyle: themeTextStyle(fontSize: 20).themeText),
                   ),
                 ),
               ),
@@ -156,13 +142,9 @@ class completeProfilePage extends StatelessWidget {
                     alignment: Alignment.center,
                     width: MediaQuery.of(context).size.width * 0.45,
                     height: MediaQuery.of(context).size.height * 0.05,
-                    child: const Text(
+                    child: Text(
                       "استمر",
-                      style: TextStyle(
-                          fontFamily: "NotoKufiArabic",
-                          fontSize: 14,
-                          color: Color(0xff000000),
-                          fontWeight: FontWeight.w400),
+                      style: themeTextStyle(fontSize: 14).themeText,
                       textAlign: TextAlign.center,
                     ),
                   )),

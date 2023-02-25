@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:sekala/textStyle.dart';
+import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 
-class homePage extends StatelessWidget {
+class homePage extends StatefulWidget {
   const homePage({super.key});
+
+  @override
+  State<homePage> createState() => _homePageState();
+}
+
+class _homePageState extends State<homePage> {
+  var _currentIndex = 0;
   // themeTextStyle myTextStyle = themeTextStyle(fontSize: 14);
-
-  // final myTextStyle = const themeTextStyle(fontSize: 8);
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -34,16 +39,13 @@ class homePage extends StatelessWidget {
           padding: const EdgeInsets.only(top: 50),
           child: Column(
             children: [
-              const Align(
+              Align(
                 alignment: Alignment.centerRight,
                 child: Padding(
-                  padding: EdgeInsets.only(right: 20, bottom: 10),
+                  padding: const EdgeInsets.only(right: 20, bottom: 10),
                   child: Text(
                     'المواد النشطة',
-                    style: TextStyle(
-                        fontFamily: "NotoKufiArabic",
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400),
+                    style: themeTextStyle(fontSize: 20).themeText,
                     textAlign: TextAlign.right,
                   ),
                 ),
@@ -81,22 +83,19 @@ class homePage extends StatelessWidget {
                     },
                   )),
               SizedBox(height: MediaQuery.of(context).size.height * 0.03),
-              const Align(
+              Align(
                 alignment: Alignment.centerRight,
                 child: Padding(
-                  padding: EdgeInsets.only(right: 20, bottom: 10),
+                  padding: const EdgeInsets.only(right: 20, bottom: 10),
                   child: Text(
                     'المتاجر',
-                    style: TextStyle(
-                        fontFamily: "NotoKufiArabic",
-                        fontSize: 20,
-                        fontWeight: FontWeight.w400),
+                    style: themeTextStyle(fontSize: 20).themeText,
                     textAlign: TextAlign.right,
                   ),
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * 0.3935,
+                height: MediaQuery.of(context).size.height * 0.37544,
                 width: MediaQuery.of(context).size.width * 0.8,
                 child: GridView.builder(
                     itemCount: 9,
@@ -131,7 +130,7 @@ class homePage extends StatelessWidget {
                                 clipBehavior: Clip.hardEdge,
                                 child: const Image(
                                   image: AssetImage(
-                                      "assets/images/sekalaName1.jpg"),
+                                      "assets/images/materialPicture.jpg"),
                                   fit: BoxFit.cover,
                                 ),
                               ),
@@ -154,10 +153,8 @@ class homePage extends StatelessWidget {
                                   child: Text(
                                     'متجر $index',
                                     overflow: TextOverflow.ellipsis,
-                                    style: const TextStyle(
-                                        fontFamily: "NotoKufiArabic",
-                                        fontSize: 12,
-                                        fontWeight: FontWeight.w400),
+                                    style:
+                                        themeTextStyle(fontSize: 12).themeText,
                                     textAlign: TextAlign.right,
                                   ),
                                 ),
@@ -170,11 +167,8 @@ class homePage extends StatelessWidget {
                                     'وصف للمتجر او كلام $index وصف للمتجر او كلام $index وصف للمتجر او كلام $index',
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 2,
-                                    style: themeTextStyle(fontSize: 10),
-                                    // const TextStyle(
-                                    //     fontFamily: "NotoKufiArabic",
-                                    //     fontSize: 10,
-                                    //     fontWeight: FontWeight.w400),
+                                    style:
+                                        themeTextStyle(fontSize: 10).themeText,
                                     textAlign: TextAlign.right,
                                   ),
                                 ),
@@ -188,33 +182,38 @@ class homePage extends StatelessWidget {
             ],
           ),
         ),
-        bottomNavigationBar: Container(
-          height: 50,
-          padding: const EdgeInsets.only(bottom: 10),
-          margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
-          decoration: BoxDecoration(
-              color: const Color(0xffF8872D),
-              borderRadius: BorderRadius.circular(10)),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              IconButton(
-                onPressed: (() {}),
-                icon: const Image(
-                    image: AssetImage("assets/images/homeIcon.png")),
-              ),
-              IconButton(
-                onPressed: (() {}),
-                icon: const Image(
-                    image: AssetImage("assets/images/categoryIcon.png")),
-              ),
-              IconButton(
-                onPressed: (() {}),
-                icon: const Image(
-                    image: AssetImage("assets/images/searchIcon.png")),
-              ),
-            ],
-          ),
+        bottomNavigationBar: FloatingNavbar(
+          margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+          fontSize: 10,
+          iconSize: 12,
+          selectedBackgroundColor: const Color(0xffE5E5E5).withOpacity(0.5),
+          unselectedItemColor: Colors.black,
+          backgroundColor: const Color(0xffF8872D),
+          currentIndex: _currentIndex,
+          onTap: (i) => setState(() => _currentIndex = i),
+          items: [
+            FloatingNavbarItem(
+                customWidget: const Image(
+                  image: AssetImage("assets/images/homeIcon.png"),
+                  width: 25,
+                  height: 25,
+                ),
+                title: "الصفحة الرئيسية"),
+            FloatingNavbarItem(
+                customWidget: const Image(
+                  image: AssetImage("assets/images/categoryIcon.png"),
+                  width: 25,
+                  height: 25,
+                ),
+                title: "الاصناف"),
+            FloatingNavbarItem(
+                customWidget: const Image(
+                  image: AssetImage("assets/images/searchIcon.png"),
+                  width: 25,
+                  height: 25,
+                ),
+                title: "البحث"),
+          ],
         ),
       ),
     );
