@@ -7,7 +7,7 @@ import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.da
 final List<Widget> screens = [
   const homePage(),
   const CategoryPage(),
-  const searchPage()
+  const SearchPage()
 ];
 var _currentIndex = 0;
 

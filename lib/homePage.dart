@@ -1,14 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:sekala/categoryPage.dart';
-import 'package:sekala/searchPage.dart';
+import 'package:sekala/storePage.dart';
 import 'package:sekala/textStyle.dart';
 
-final List<Widget> screens = [
-  const homePage(),
-  const CategoryPage(),
-  const searchPage()
-];
 var _currentIndex = 0;
 
 class homePage extends StatefulWidget {
@@ -24,25 +18,6 @@ class _homePageState extends State<homePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        // appBar: AppBar(
-        //   automaticallyImplyLeading: false,
-        //   backgroundColor: Colors.transparent,
-        //   elevation: 0,
-        //   centerTitle: true,
-        //   title: const Image(
-        //     image: AssetImage("assets/images/سكلة.png"),
-        //     height: 50,
-        //   ),
-        //   actions: [
-        //     IconButton(
-        //       onPressed: (() {}),
-        //       icon: const Icon(Icons.account_circle_outlined),
-        //       color: Colors.black,
-        //       iconSize: 35,
-        //     )
-        //   ],
-        // ),
-
         body: Padding(
           padding: const EdgeInsets.only(top: 50),
           child: Column(
@@ -116,114 +91,88 @@ class _homePageState extends State<homePage> {
                         crossAxisCount: 2),
                     itemBuilder: ((context, index) {
                       return GridTile(
-                          child: Container(
-                        height: MediaQuery.of(context).size.height,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(10),
-                            color: const Color(0xffE5E5E5),
-                            border: Border.all(
-                                color: Colors.black.withOpacity(0.5))),
-                        child: LayoutBuilder(builder:
-                            (BuildContext context, BoxConstraints constraints) {
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: constraints.maxHeight * 0.55,
-                                width: double.infinity,
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(10),
-                                  color: Colors.cyan,
-                                ),
-                                clipBehavior: Clip.hardEdge,
-                                child: const Image(
-                                  image: AssetImage(
-                                      "assets/images/materialPicture.jpg"),
-                                  fit: BoxFit.cover,
-                                ),
-                              ),
-                              RatingBar.builder(
-                                itemBuilder: ((context, _) => const Icon(
-                                      Icons.star,
-                                      color: Colors.amber,
-                                    )),
-                                onRatingUpdate: ((rating) {}),
-                                ignoreGestures: true,
-                                itemCount: 5,
-                                minRating: 1,
-                                initialRating: 2,
-                                itemSize: 15,
-                              ),
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(right: 2),
-                                  child: Text(
-                                    'متجر $index',
-                                    overflow: TextOverflow.ellipsis,
-                                    style:
-                                        themeTextStyle(fontSize: 12).themeText,
-                                    textAlign: TextAlign.right,
+                          child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: ((context) => const storePage())));
+                        },
+                        child: Container(
+                          height: MediaQuery.of(context).size.height,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              color: const Color(0xffE5E5E5),
+                              border: Border.all(
+                                  color: Colors.black.withOpacity(0.5))),
+                          child: LayoutBuilder(builder: (BuildContext context,
+                              BoxConstraints constraints) {
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  height: constraints.maxHeight * 0.55,
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(10),
+                                    color: Colors.cyan,
+                                  ),
+                                  clipBehavior: Clip.hardEdge,
+                                  child: const Image(
+                                    image: AssetImage(
+                                        "assets/images/materialPicture.jpg"),
+                                    fit: BoxFit.cover,
                                   ),
                                 ),
-                              ),
-                              Align(
-                                alignment: Alignment.centerRight,
-                                child: Padding(
-                                  padding: const EdgeInsets.only(right: 2),
-                                  child: Text(
-                                    'وصف للمتجر او كلام $index وصف للمتجر او كلام $index وصف للمتجر او كلام $index',
-                                    overflow: TextOverflow.ellipsis,
-                                    maxLines: 2,
-                                    style:
-                                        themeTextStyle(fontSize: 10).themeText,
-                                    textAlign: TextAlign.right,
+                                RatingBar.builder(
+                                  itemBuilder: ((context, _) => const Icon(
+                                        Icons.star,
+                                        color: Colors.amber,
+                                      )),
+                                  onRatingUpdate: ((rating) {}),
+                                  ignoreGestures: true,
+                                  itemCount: 5,
+                                  minRating: 1,
+                                  initialRating: 2,
+                                  itemSize: 15,
+                                ),
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 2),
+                                    child: Text(
+                                      'متجر $index',
+                                      overflow: TextOverflow.ellipsis,
+                                      style: themeTextStyle(fontSize: 12)
+                                          .themeText,
+                                      textAlign: TextAlign.right,
+                                    ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          );
-                        }),
+                                Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(right: 2),
+                                    child: Text(
+                                      'وصف للمتجر او كلام $index وصف للمتجر او كلام $index وصف للمتجر او كلام $index',
+                                      overflow: TextOverflow.ellipsis,
+                                      maxLines: 2,
+                                      style: themeTextStyle(fontSize: 10)
+                                          .themeText,
+                                      textAlign: TextAlign.right,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            );
+                          }),
+                        ),
                       ));
                     })),
               )
             ],
           ),
         ),
-
-        // bottomNavigationBar: FloatingNavbar(
-        //   margin: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
-        //   fontSize: 10,
-        //   iconSize: 12,
-        //   selectedBackgroundColor: const Color(0xffE5E5E5).withOpacity(0.5),
-        //   unselectedItemColor: Colors.black,
-        //   backgroundColor: const Color(0xffF8872D),
-        //   currentIndex: _currentIndex,
-        //   onTap: (i) => setState(() => _currentIndex = i),
-        //   items: [
-        //     FloatingNavbarItem(
-        //         customWidget: const Image(
-        //           image: AssetImage("assets/images/homeIcon.png"),
-        //           width: 25,
-        //           height: 25,
-        //         ),
-        //         title: "الصفحة الرئيسية"),
-        //     FloatingNavbarItem(
-        //         customWidget: const Image(
-        //           image: AssetImage("assets/images/categoryIcon.png"),
-        //           width: 25,
-        //           height: 25,
-        //         ),
-        //         title: "الاصناف"),
-        //     FloatingNavbarItem(
-        //         customWidget: const Image(
-        //           image: AssetImage("assets/images/searchIcon.png"),
-        //           width: 25,
-        //           height: 25,
-        //         ),
-        //         title: "البحث"),
-        //   ],
-        // ),
       ),
     );
   }

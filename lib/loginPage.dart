@@ -69,7 +69,7 @@ class loginWidget extends StatelessWidget {
               SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               TextButton(
                   onPressed: (() {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
                             builder: ((context) => const mainPage())));
