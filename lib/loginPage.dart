@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sekala/homePage.dart';
+import 'package:sekala/mainPage.dart';
 import 'package:sekala/singUpPage.dart';
 
 class loginWidget extends StatelessWidget {
@@ -72,7 +72,7 @@ class loginWidget extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: ((context) => const homePage())));
+                            builder: ((context) => const mainPage())));
                   }),
                   child: Container(
                     decoration: BoxDecoration(
