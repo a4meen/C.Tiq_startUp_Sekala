@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:sekala/completeProfile.dart';
 import 'package:sekala/loginPage.dart';
+import 'package:sekala/mainResellerPage.dart';
 import 'package:sekala/singUpPage.dart';
 
 class signupPageSekalaPage extends StatelessWidget {
@@ -95,7 +95,8 @@ class signupPageSekalaPage extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                             builder: ((context) =>
-                                const completeProfilePage())));
+                                // const completeProfilePage()
+                                const mainResellerPage())));
                   }),
                   child: Container(
                     decoration: BoxDecoration(
