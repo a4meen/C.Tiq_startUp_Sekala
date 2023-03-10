@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sekala/itemPage.dart';
 import 'package:sekala/textStyle.dart';
 
 class storePage extends StatelessWidget {
@@ -46,7 +47,12 @@ class storePage extends StatelessWidget {
                   itemBuilder: ((context, index) {
                     return GridTile(
                         child: InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: ((context) => const itemPage())));
+                      },
                       child: Container(
                         height: MediaQuery.of(context).size.height,
                         decoration: BoxDecoration(

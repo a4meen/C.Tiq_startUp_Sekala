@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sekala/categoryPage.dart';
 import 'package:sekala/homePage.dart';
+import 'package:sekala/profilePage.dart';
 import 'package:sekala/searchPage.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 
@@ -35,7 +36,12 @@ class _homePageState extends State<mainPage> {
           ),
           actions: [
             IconButton(
-              onPressed: (() {}),
+              onPressed: (() {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) => const profilePage())));
+              }),
               icon: const Icon(Icons.account_circle_outlined),
               color: Colors.black,
               iconSize: 35,
