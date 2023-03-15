@@ -41,6 +41,7 @@ dependencies:
   salomon_bottom_bar: ^3.3.1
   floating_bottom_navigation_bar: ^1.5.2
   material_floating_search_bar: ^0.3.7
+  http: ^0.13.5
 
 dev_dependencies:
   flutter_test:

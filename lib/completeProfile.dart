@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
-import 'package:sekala/mainPage.dart';
+import 'package:sekala/controllers/api_services.dart';
+import 'package:sekala/singUpPage.dart';
 import 'package:sekala/textStyle.dart';
+
+TextEditingController enteredName = TextEditingController();
+TextEditingController enteredNumber = TextEditingController();
+TextEditingController enteredPass = TextEditingController();
+// TextEditingController enteredEmail = TextEditingController();
+late String enteredEmail;
 
 class completeProfilePage extends StatelessWidget {
   const completeProfilePage({super.key});
 
   @override
   Widget build(BuildContext context) {
+    enteredName.text = userName;
+    enteredNumber.text = userNumber;
+    enteredPass.text = userPass;
+
     return SafeArea(
       child: Scaffold(
         body: SingleChildScrollView(
@@ -22,6 +33,8 @@ class completeProfilePage extends StatelessWidget {
                 child: Directionality(
                   textDirection: TextDirection.rtl,
                   child: TextField(
+                    controller: enteredName,
+                    readOnly: true,
                     keyboardType: TextInputType.name,
                     textAlign: TextAlign.right,
                     decoration: InputDecoration(
@@ -44,6 +57,8 @@ class completeProfilePage extends StatelessWidget {
                 child: Directionality(
                   textDirection: TextDirection.rtl,
                   child: TextField(
+                    readOnly: true,
+                    controller: enteredNumber,
                     keyboardType: TextInputType.phone,
                     textAlign: TextAlign.right,
                     decoration: InputDecoration(
@@ -66,6 +81,8 @@ class completeProfilePage extends StatelessWidget {
                 child: Directionality(
                   textDirection: TextDirection.rtl,
                   child: TextField(
+                    controller: enteredPass,
+                    readOnly: true,
                     obscureText: true,
                     keyboardType: TextInputType.name,
                     textAlign: TextAlign.right,
@@ -89,6 +106,9 @@ class completeProfilePage extends StatelessWidget {
                 child: Directionality(
                   textDirection: TextDirection.rtl,
                   child: TextField(
+                    onChanged: (value) {
+                      enteredEmail = value;
+                    },
                     keyboardType: TextInputType.text,
                     textAlign: TextAlign.right,
                     decoration: InputDecoration(
@@ -99,7 +119,7 @@ class completeProfilePage extends StatelessWidget {
                                 color:
                                     const Color(0xff000000).withOpacity(0.5)),
                             borderRadius: BorderRadius.circular(10)),
-                        hintText: "الجنس",
+                        labelText: "الايميل",
                         hintStyle: themeTextStyle(fontSize: 12).themeText),
                   ),
                 ),
@@ -111,7 +131,6 @@ class completeProfilePage extends StatelessWidget {
                 child: Directionality(
                   textDirection: TextDirection.rtl,
                   child: TextField(
-                    obscureText: true,
                     keyboardType: TextInputType.text,
                     textAlign: TextAlign.right,
                     decoration: InputDecoration(
@@ -130,10 +149,11 @@ class completeProfilePage extends StatelessWidget {
               SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               TextButton(
                   onPressed: (() {
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                            builder: ((context) => const mainPage())));
+                    ApiServieces().Future();
+                    // Navigator.pushReplacement(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //         builder: ((context) => const mainPage())));
                   }),
                   child: Container(
                     decoration: BoxDecoration(

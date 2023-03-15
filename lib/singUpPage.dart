@@ -3,6 +3,10 @@ import 'package:sekala/completeProfile.dart';
 import 'package:sekala/loginPage.dart';
 import 'package:sekala/signUpSekalaPage.dart';
 
+late String userName;
+late String userNumber;
+late String userPass;
+
 class signupPage extends StatelessWidget {
   const signupPage({super.key});
 
@@ -29,6 +33,9 @@ class signupPage extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.9,
                 height: MediaQuery.of(context).size.width * 0.12,
                 child: TextField(
+                  onChanged: (value) {
+                    userName = value;
+                  },
                   keyboardType: TextInputType.name,
                   textAlign: TextAlign.right,
                   decoration: InputDecoration(
@@ -50,6 +57,9 @@ class signupPage extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.9,
                 height: MediaQuery.of(context).size.width * 0.12,
                 child: TextField(
+                  onChanged: (value) {
+                    userNumber = value;
+                  },
                   keyboardType: TextInputType.phone,
                   textAlign: TextAlign.right,
                   decoration: InputDecoration(
@@ -71,6 +81,9 @@ class signupPage extends StatelessWidget {
                 width: MediaQuery.of(context).size.width * 0.9,
                 height: MediaQuery.of(context).size.width * 0.12,
                 child: TextField(
+                  onChanged: (value) {
+                    userPass = value;
+                  },
                   obscureText: true,
                   keyboardType: TextInputType.text,
                   textAlign: TextAlign.right,
@@ -152,7 +165,7 @@ class signupPage extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                               builder: ((context) =>

@@ -91,7 +91,7 @@ class signupPageSekalaPage extends StatelessWidget {
               SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               TextButton(
                   onPressed: (() {
-                    Navigator.pushReplacement(
+                    Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: ((context) =>
@@ -121,7 +121,7 @@ class signupPageSekalaPage extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                               builder: ((context) => const loginWidget())));
@@ -153,13 +153,13 @@ class signupPageSekalaPage extends StatelessWidget {
                 children: [
                   InkWell(
                     onTap: () {
-                      Navigator.push(
+                      Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(
                               builder: ((context) => const signupPage())));
                     },
                     child: const Text(
-                      "قم بالتسجيل",
+                      "قم بانشاء حساب",
                       style: TextStyle(
                           fontFamily: "NotoKufiArabic",
                           fontSize: 14,
